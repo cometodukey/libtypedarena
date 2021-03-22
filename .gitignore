@@ -1,4 +1,4 @@
-examples/
-Makefile
-a.out
+*.o
+example
+
 todo.txt
