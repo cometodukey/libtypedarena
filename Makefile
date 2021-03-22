@@ -1,4 +1,4 @@
-CFLAGS := -I. -Wall -Wextra -Wpedantic -std=gnu11
+CFLAGS += -I. -Wall -Wextra -Wpedantic -std=gnu11
 BIN := example
 
 SRCS = examples/example.c

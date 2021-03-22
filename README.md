@@ -24,7 +24,7 @@ A simple typed arena allocator in C.
 * Arena types must be a valid C identifier
     * Anything behind the `union`/`struct`/`enum` namespaces must be typedeffed
     * Pointer types must be typedeffed e.g. `typedef char * char_ptr;`
-* Every library definition prefixed with `___` is internal and should not be used directly
+* Every library definition prefixed with `___arena` is internal and should not be used directly
 * Thread and signal unsafe
 * It's not currently possible to transmute an arena from one type to another
 
