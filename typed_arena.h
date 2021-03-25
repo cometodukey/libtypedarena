@@ -1,6 +1,10 @@
 #ifndef __TYPED_ARENA_H__
 #define __TYPED_ARENA_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <assert.h>
 #include <stdalign.h>
 #include <stdbool.h>
@@ -120,5 +124,9 @@ static inline bool ___arena_in_range(const uintptr_t start, const uintptr_t end,
     { \
         CONCAT2(___arena_##type, _free)(&name); \
     }
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* __TYPED_ARENA_H__ */
