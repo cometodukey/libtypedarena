@@ -10,6 +10,7 @@ extern "C" {
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <string.h>
 #include <sys/mman.h>
 
 enum arena_error
@@ -85,6 +86,8 @@ static inline bool ___arena_in_range(const uintptr_t start, const uintptr_t end,
     static inline void CONCAT2(___arena_##type, _recycle)(arena(type) *arena) \
     { \
         arena->idx = 0; \
+        /* FIXME: Be smarter with this. Clearing the entire arena is redundant if it wasn't all allocated */ \
+        memset(arena->data, 0, arena->size); \
     } \
     /* Free the arena buffer */ \
     static inline void CONCAT2(___arena_##type, _free)(arena(type) *arena) \
