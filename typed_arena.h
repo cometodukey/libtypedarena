@@ -74,7 +74,7 @@ static inline bool ___arena_in_range(const uintptr_t start, const uintptr_t end,
             const size_t new_idx = arena->idx + nmemb; \
             if (new_idx >= arena->idx) \
             { \
-                arena->idx += new_idx; \
+                arena->idx = new_idx; \
                 assert((const uintptr_t)start_of_alloc % alignof(*arena->data) == 0); \
                 return start_of_alloc; \
             } \
